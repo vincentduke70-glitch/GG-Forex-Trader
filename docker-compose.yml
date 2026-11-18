@@ -1,0 +1,14 @@
+services:
+  gg-forex:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./data/gg_forex.db
+      - TRADING_MODE=paper
+    volumes:
+      - gg_data:/app/data
+volumes:
+  gg_data:
